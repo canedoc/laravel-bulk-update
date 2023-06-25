@@ -1,4 +1,4 @@
-# :Laravel conditionnal bulk update
+# Laravel conditionnal bulk update
 
 This pachake add multi row update to Laravel Query Builder. It supports Laravel >= 9.
 
