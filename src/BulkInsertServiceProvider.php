@@ -2,8 +2,8 @@
 
 namespace Candooc\BulkInsert;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Support\ServiceProvider;
 
 class BulkInsertServiceProvider extends ServiceProvider
 {

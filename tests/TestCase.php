@@ -12,7 +12,6 @@ class TestCase extends Orchestra
         parent::setUp();
     }
 
-
     protected function getPackageProviders($app)
     {
         return [
@@ -29,7 +28,7 @@ class TestCase extends Orchestra
         config()->set('database.connections.mysql.username', 'root');
         config()->set('database.connections.mysql.password', 'root');
 
-        $migration = include __DIR__ . '/../database/migrations/create_users_table.php';
+        $migration = include __DIR__.'/../database/migrations/create_users_table.php';
         $migration->up();
     }
 }
