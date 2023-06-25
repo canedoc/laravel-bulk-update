@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "canedoc/laravel-bulk-update",
+    "description": "",
     "keywords": [
-        ":vendor_name",
+        "candoc",
         "laravel",
-        ":package_slug"
+        "laravel-bulk-update"
     ],
     "homepage": "https://github.com/:vendor_slug/:package_slug",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "BOUBRIT Nacim",
+            "email": "fn_boubrit@esi.dz",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Candooc\\BulkInsert\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Candooc\\BulkInsert\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,11 +60,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
-            }
+                "Candooc\\BulkInsert\\BulkInsertServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
