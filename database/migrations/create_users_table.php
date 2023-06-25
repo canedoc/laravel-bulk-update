@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
-            $table->string('first_name', 255);
-            $table->string('last_name', 255);
-            $table->boolean('active')->default(true);
+            $table->string('email', 255);
+            $table->string('name', 255);
+            $table->integer('id');
         });
     }
 };
