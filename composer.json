@@ -6,7 +6,7 @@
         "laravel",
         "laravel-bulk-update"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/canedoc/laravel-bulk-update",
     "license": "MIT",
     "authors": [
         {
