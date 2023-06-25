@@ -1,6 +1,7 @@
 <?php
 
 it('test update with conditional update', function ($data, $updateData, $result) {
+    \DB::table('users')->delete();
     \DB::table('users')->insert($data);
 
     \DB::table('users')->bulkUpdate($updateData);
