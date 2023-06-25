@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
-            $table->string('email', 255);
-            $table->string('name', 255);
+            $table->string('email', 255)->nullable();
+            $table->string('name', 255)->nullable();
             $table->integer('id');
         });
     }
