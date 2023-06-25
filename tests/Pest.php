@@ -1,5 +1,5 @@
 <?php
 
-use VendorName\Skeleton\Tests\TestCase;
+use Candooc\BulkInsert\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
