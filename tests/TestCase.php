@@ -21,12 +21,20 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'mysql');
-        config()->set('database.connections.mysql.port', 3307);
-        config()->set('database.connections.mysql.host', '172.31.112.1');
-        config()->set('database.connections.mysql.database', 'testing');
-        config()->set('database.connections.mysql.username', 'root');
-        config()->set('database.connections.mysql.password', 'root');
+        $baseDBConfigPath = "database.connections.{$_ENV['DB_DRIVER']}.";
+
+        config()->set('database.default', $_ENV['DB_DRIVER']);
+        config()->set($baseDBConfigPath . 'port',  $_ENV['DB_PORT']);
+        config()->set($baseDBConfigPath . 'host', $_ENV['DB_HOST']);
+        config()->set($baseDBConfigPath . 'database', $_ENV['DB_NAME']);
+        config()->set($baseDBConfigPath . 'username', $_ENV['DB_USERNAME']);
+        config()->set($baseDBConfigPath . 'password', $_ENV['DB_PASSWORD']);
+        config()->set($baseDBConfigPath . 'trust_server_certificate', 'true');
+
+        config()->set($baseDBConfigPath . 'options' , [
+            \PDO::ATTR_STRINGIFY_FETCHES => false,
+            \PDO::SQLSRV_ATTR_FETCHES_NUMERIC_TYPE => true
+        ]);
 
         $migration = include __DIR__.'/../database/migrations/create_users_table.php';
         $migration->up();

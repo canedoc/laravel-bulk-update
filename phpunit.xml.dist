@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="VendorName Test Suite">
+        <testsuite name="tests">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
@@ -33,4 +33,12 @@
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>
+    <php>
+        <env name="DB_DRIVER" value="mysql"/>
+        <env name="DB_NAME" value="testing"/>
+        <env name="DB_HOST" value="172.27.112.1"/>
+        <env name="DB_PORT" value="3307"/>
+        <env name="DB_USERNAME" value="root"/>
+        <env name="DB_PASSWORD" value="root"/>
+    </php>
 </phpunit>
