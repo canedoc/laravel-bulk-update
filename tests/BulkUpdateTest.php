@@ -11,7 +11,6 @@ it('update with conditional update', function ($data, $updateData, $result, $fil
         ->toEqualCanonicalizing($result);
 })->with('users conditional update');
 
-
 it('update with filters clauses', function ($data, $updateData, $result, $filters) {
     \DB::table('users')->insert($data);
 
@@ -23,7 +22,6 @@ it('update with filters clauses', function ($data, $updateData, $result, $filter
         ->toHaveCount(count($result))
         ->toEqualCanonicalizing($result);
 })->with('users conditional update with query filters');
-
 
 function getDBUsers(): array
 {
