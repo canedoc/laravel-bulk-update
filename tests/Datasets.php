@@ -44,12 +44,12 @@ dataset('users conditional update', [
             ],
             'name' => [
                 ['name' => 'Kurama', 'id' => 1],
-            ]
+            ],
         ],
         [
             ['email' => 'narutoisthebest@best.com', 'name' => 'Kurama', 'id' => 1],
             ['email' => 'sasukiisthebest@best.com', 'name' => 'sasuki', 'id' => 2],
-        ]
+        ],
     ],
 
     'with set to values' => [
@@ -64,9 +64,6 @@ dataset('users conditional update', [
         array_map(fn ($row) => $updateData + $row, $baseData),
     ],
 ]);
-
-
-
 
 dataset('users conditional update with query filters', [
     'conditionnal update with where clause' => [
@@ -83,7 +80,7 @@ dataset('users conditional update with query filters', [
             ],
         ],
         [$updatedRow] + $baseData,
-        fn($query) => $query->where('id', 1)
+        fn ($query) => $query->where('id', 1),
     ],
 
     'with set to values' => [
@@ -96,6 +93,6 @@ dataset('users conditional update with query filters', [
             'email' => 'itachi@idotensi.com',
         ],
         array_map(fn ($row) => $updateData + $row, $baseData),
-        fn($query) => $query->whereIn('email', ['naruto@best.com', 'sasuki@best.com', 'kakachi@best.com'])
+        fn ($query) => $query->whereIn('email', ['naruto@best.com', 'sasuki@best.com', 'kakachi@best.com']),
     ],
 ]);
