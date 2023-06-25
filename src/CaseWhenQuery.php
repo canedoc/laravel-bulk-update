@@ -2,7 +2,6 @@
 
 namespace Candooc\BulkInsert;
 
-
 class CaseWhenQuery
 {
     private array $conditions = [];
@@ -13,10 +12,9 @@ class CaseWhenQuery
 
     private array $bindings = [];
 
-
     public static function from(string $column, array $conditions): self
     {
-        $query = new Self();
+        $query = new self();
         $query->thenColumn = $column;
         $query->conditions = $conditions;
 
@@ -28,6 +26,7 @@ class CaseWhenQuery
         foreach ($this->conditions as $condition) {
             $this->compileToCasWhen($condition);
         }
+
         return $this->sql = "case {$this->sql} else  {$this->thenColumn} end";
     }
 
@@ -42,11 +41,11 @@ class CaseWhenQuery
         unset($condition[$this->thenColumn]);
 
         $whenConditions = [];
-        foreach($condition as $column => $value) {
+        foreach ($condition as $column => $value) {
             if (is_null($value)) {
                 $whenConditions[] = "$column is NULL";
             } else {
-                $whenConditions[] =  "$column = ?";
+                $whenConditions[] = "$column = ?";
                 $this->addBindings([$value]);
             }
         }
@@ -54,13 +53,11 @@ class CaseWhenQuery
         $whenQuery = implode(' and ', $whenConditions);
 
         $this->addBindings([$thenValue]);
-        $this->sql .=  " when $whenQuery then ? ";
+        $this->sql .= " when $whenQuery then ? ";
     }
 
     private function addBindings(array $bindings): void
     {
         $this->bindings = array_merge($this->bindings, $bindings);
     }
-
-
 }

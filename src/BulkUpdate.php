@@ -9,7 +9,7 @@ class BulkUpdate
         return function (array $data): int {
             $originalBindings = $this->getRawBindings();
 
-            foreach($data as $columnToUpdate => &$conditionalUpdate) {
+            foreach ($data as $columnToUpdate => &$conditionalUpdate) {
                 if (! is_array($conditionalUpdate)) {
                     continue;
                 }
@@ -17,7 +17,7 @@ class BulkUpdate
                 $query = CaseWhenQuery::from($columnToUpdate, $conditionalUpdate);
 
                 $conditionalUpdate = \DB::raw($query->toSql());
-                foreach($query->getBindings() as $binding) {
+                foreach ($query->getBindings() as $binding) {
                     $this->addBinding($binding, 'from');
                 }
             }
