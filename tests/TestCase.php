@@ -10,6 +10,7 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
+        \DB::table('users')->delete();
     }
 
     protected function getPackageProviders($app)
